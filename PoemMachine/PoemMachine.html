@@ -2,9 +2,32 @@
 <html>
 	<head>
 		<title>The Great Poem Machine</title>
+	
+		<style>
+			body{
+				font-family: Arial;
+				font-size: small;
+			}
+			canvas{
+				cursor:pointer;
+				border: 1px solid black;
+			}
+		</style>
+
+		<script type="application/javascript" src = "Scripts/PoemMachine.js"></script>
 	</head>
+
 	<body>
 		<h1>Taking the pesky human factor out of poem generation.</h1>
+		<canvas id = "canvas" width="800" height="500">
+			
+		</canvas>
+
+		<div>
+			<button onclick ="genPoem()">Generate Poem</button>
+		</div>
+
+
 	</body>
 	
 </html>
