@@ -3,9 +3,6 @@
 	<head>
 		<title>The Great Poem Machine</title>
 		
-
-		
-	
 		<style>
 			body{
 				font-family: Arial;
@@ -17,30 +14,13 @@
 			}
 		</style>
 
-		<script type="application/javascript" src = "Scripts/PoemMachine.js"></script>
+		
 	</head>
 
 	<body>
-		<h1>Taking the pesky human factor out of poem generation.</h1>
-		<canvas id = "canvas" width="800" height="500">
-			
-		</canvas>
 
-		<div>
-			<button onclick ="genPoem()">Generate Poem</button>
-		</div>
-		<?php
+		<script type="application/javascript" src = "Scripts/PoemMachine.js"></script>
 
-			// This function grabs the definition of a word in XML format.
-			function grab_xml_definition ($word, $ref, $key)
-				{	$uri = "http://www.dictionaryapi.com/api/v1/references/" . urlencode($ref) . "/xml/" . 
-						urlencode($word) . "?key=" . urlencode($key);
-					return file_get_contents($uri);
-				};
-
-		$xdef = grab_xml_definition("test", "collegiate", "d11c6730-0196-428a-9583-72352dbb1314");
-
-		?>
 
 	</body>
 	
