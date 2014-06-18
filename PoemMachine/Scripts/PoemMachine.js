@@ -106,7 +106,9 @@ var update = function (modifier) {
 		&& monster.y <= (hero.y + 32)
 	) {
 		++monstersCaught;
-		reset();
+		//reset();
+		monster.x = 32 + (Math.random() * (canvas.width - 64));
+		monster.y = 32 + (Math.random() * (canvas.height - 64));
 	}
 };
 
