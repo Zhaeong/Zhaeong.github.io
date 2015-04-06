@@ -1,7 +1,10 @@
+//Song
+var pinkrabbitsong = document.getElementById("pinkrabbit");
+pinkrabbitsong.play();
 // Create the canvas
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 512;
+canvas.width = 1000;
 canvas.height = 480;
 document.body.appendChild(canvas);
 
@@ -49,10 +52,11 @@ addEventListener("keyup", function (e) {
 
 // Reset the game when the player catches a monster
 var reset = function () {
-	hero.x = canvas.width / 2;
+	//hero.x = canvas.width / 2;
 	hero.y = canvas.height / 2;
+	hero.x = 0;
 
-	// Throw the monster somewhere on the screen randomly
+	//Throw the monster somewhere on the screen randomly
 	monster.x = 32 + (Math.random() * (canvas.width - 64));
 	monster.y = 32 + (Math.random() * (canvas.height - 64));
 };
@@ -60,34 +64,24 @@ var reset = function () {
 // Update game objects
 var update = function (modifier) {
 	if (38 in keysDown || 87 in keysDown) { // Player holding up
-		if(velY > -hero.speed){
-			velY--;
-	}
+		hero.y -= hero.speed;
+		changeframe();
 	}
 	if (40 in keysDown || 83 in keysDown) { // Player holding down
-		if (velY < hero.speed) {
-            velY++;
-        }
+		hero.y += hero.speed;
+		changeframe();
 	}
 	if (37 in keysDown || 65 in keysDown) { // Player holding left
-		if (velX > -hero.speed) {
-            velX--;
-        }
+		hero.x -= hero.speed;
+		changeframe();
 	}
 	if (39 in keysDown || 68 in keysDown) { // Player holding right
-		if (velX < hero.speed) {
-            velX++;
-        }
+		hero.x += hero.speed;
+		changeframe();
 	}
 
-	velY *= friction;
-	hero.y += velY;
-
-	velX *= friction;
-	hero.x += velX;
-
-    if (hero.x >= 512) {
-        hero.x = 512;
+    if (hero.x >= 1000) {
+        hero.x = 1000;
     } else if (hero.x <= 5) {
         hero.x = 5;
     }
@@ -113,10 +107,33 @@ var update = function (modifier) {
 };
 
 // Draw everything
+nrenderframe = 0;
+ticksPerFrame = 10;
+tickcount = 0;
+function changeframe()
+{
+	tickcount++;
+	if(tickcount > ticksPerFrame)
+	{
+		tickcount = 0;
+		if(nrenderframe ==0)
+		{
+			nrenderframe = 1;
+		}
+		else if(nrenderframe == 1)
+		{
+			nrenderframe = 0;
+		}
+	}
+}
 var render = function () {
+
+
 	if (Ready) {
+		
 		ctx.drawImage(images["MainBackGround"], 0, 0);
-		ctx.drawImage(images["hero"], hero.x, hero.y);
+		drawhero(nrenderframe);
+		
 		ctx.drawImage(images["monster"], monster.x, monster.y);
 	}
 
@@ -125,8 +142,47 @@ var render = function () {
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Stars in the sky: " + monstersCaught, 32, 32);
+	ctx.fillText("Chase your dreams!: " + monstersCaught, 32, 32);
 };
+var nwidth = 41;
+var nheight = 58;
+
+var nwidth2 =82;
+var nheight2 = 58;
+
+
+function drawhero(time)
+{
+	if(time == 1)
+	{
+		ctx.drawImage(images["hero"], 
+		0,
+		0,
+		nwidth,
+		nheight,
+		hero.x, 
+		hero.y,
+		nwidth,
+		nheight
+		);
+	}
+	else
+	{
+		ctx.drawImage(images["hero"], 
+		nwidth,
+		0,
+		nwidth,
+		nheight,
+		hero.x, 
+		hero.y,
+		nwidth,
+		nheight
+		);
+	}
+
+
+}
+
 
 // The main game loop
 var main = function () {
@@ -149,4 +205,5 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Let's play this game!
 var then = Date.now();
 reset();
+
 main();
