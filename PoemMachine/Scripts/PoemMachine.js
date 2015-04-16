@@ -5,7 +5,7 @@ pinkrabbitsong.play();
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 1000;
-canvas.height = 480;
+canvas.height = 600;
 document.body.appendChild(canvas);
 
 var Ready = false;
@@ -86,8 +86,8 @@ var update = function (modifier) {
         hero.x = 5;
     }
 
-    if (hero.y > 480) {
-        hero.y = 480;
+    if (hero.y > 600) {
+        hero.y = 600;
     } else if (hero.y <= 5) {
         hero.y = 5;
     }
@@ -107,7 +107,7 @@ var update = function (modifier) {
 };
 
 // Draw everything
-nrenderframe = 0;
+nrenderframe = 1;
 ticksPerFrame = 10;
 tickcount = 0;
 function changeframe()
@@ -116,13 +116,10 @@ function changeframe()
 	if(tickcount > ticksPerFrame)
 	{
 		tickcount = 0;
-		if(nrenderframe ==0)
+		nrenderframe+=1;
+		if(nrenderframe ==5)
 		{
-			nrenderframe = 1;
-		}
-		else if(nrenderframe == 1)
-		{
-			nrenderframe = 0;
+			nrenderframe =0;
 		}
 	}
 }
@@ -144,41 +141,57 @@ var render = function () {
 	ctx.textBaseline = "top";
 	ctx.fillText("Chase your dreams!: " + monstersCaught, 32, 32);
 };
-var nwidth = 41;
-var nheight = 58;
+var nwidth = 150;
+var nheight = 300;
 
-var nwidth2 =82;
-var nheight2 = 58;
+var nwidth2 =300;
+var nheight2 = 300;
 
 
 function drawhero(time)
 {
-	if(time == 1)
-	{
 		ctx.drawImage(images["hero"], 
+		nwidth * time,
 		0,
-		0,
-		nwidth,
+		nwidth ,
 		nheight,
 		hero.x, 
 		hero.y,
 		nwidth,
 		nheight
 		);
-	}
-	else
+
+}
+
+posit = 1;
+rainarray = []
+
+function initrain()
+{	for(i = 0; i < 50; i++)
 	{
-		ctx.drawImage(images["hero"], 
-		nwidth,
-		0,
-		nwidth,
-		nheight,
-		hero.x, 
-		hero.y,
-		nwidth,
-		nheight
-		);
+		rainx = Math.floor((Math.random() * 1000) + 1);
+		rainy = Math.floor((Math.random() * 600) + 1);
+		speed = Math.floor((Math.random() * 2) + 1);
+		rainarray[i] = [rainx, rainy, speed];
 	}
+}
+
+function rain(list, index)
+{
+
+	posit+=list[2];
+	ctx.beginPath();
+    ctx.moveTo(list[0] - posit, list[1] + posit);
+    ctx.lineTo(list[0] - 30 - posit, list[1] + 30 + posit);
+    ctx.stroke();
+    if(posit > 600)
+    {
+    	posit = 0;
+    	rainx = Math.floor((Math.random() * 1000) + 1);
+		rainy = Math.floor((Math.random() * 600) + 1);
+		speed = Math.floor((Math.random() * 2) + 1);
+    	rainarray[index] = [rainx, rainy, speed];
+    }
 
 
 }
@@ -191,6 +204,20 @@ var main = function () {
 
 	update(delta / 1000);
 	render();
+
+	
+	for(i = 0; i < 10; i++)
+	{
+		rain(rainarray[i], i);
+	}
+	/*
+		rain(rainarray[0]);
+		rain(rainarray[1]);
+		rain(rainarray[2]);
+		rain(rainarray[3]);
+		rain(rainarray[4]);*/
+
+
 
 	then = now;
 
@@ -205,5 +232,5 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Let's play this game!
 var then = Date.now();
 reset();
-
+initrain();
 main();
