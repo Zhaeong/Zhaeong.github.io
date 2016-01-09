@@ -27,7 +27,7 @@ function loadImage(name) {
 }
 
 loadImage("MainBackGround");
-loadImage("hero");
+loadImage("personwalking2");
 loadImage("monster");
 
 // Game objects
@@ -108,7 +108,7 @@ var update = function (modifier) {
 
 // Draw everything
 nrenderframe = 1;
-ticksPerFrame = 10;
+ticksPerFrame = 3;
 tickcount = 0;
 function changeframe()
 {
@@ -117,7 +117,7 @@ function changeframe()
 	{
 		tickcount = 0;
 		nrenderframe+=1;
-		if(nrenderframe ==5)
+		if(nrenderframe ==27)
 		{
 			nrenderframe =0;
 		}
@@ -141,16 +141,14 @@ var render = function () {
 	ctx.textBaseline = "top";
 	ctx.fillText("Chase your dreams!: " + monstersCaught, 32, 32);
 };
-var nwidth = 150;
-var nheight = 300;
+var nwidth = 125;
+var nheight = 326;
 
-var nwidth2 =300;
-var nheight2 = 300;
 
 
 function drawhero(time)
 {
-		ctx.drawImage(images["hero"], 
+		ctx.drawImage(images["personwalking2"], 
 		nwidth * time,
 		0,
 		nwidth ,

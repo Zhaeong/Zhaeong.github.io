@@ -5,6 +5,7 @@ header {
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
   color: #ffa500;
+
 }
 
 
@@ -15,6 +16,17 @@ body {
   font-family: 'Georgia', Helvetica, Arial, serif;
   font-weight: 400;
   color: #000;
+
+}
+
+a{
+  text-decoration:none;
+}
+
+.back{
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 4px; 
 }
 
 
@@ -35,4 +47,8 @@ body {
   width: 690px;
   float: left;
 }
+
+
+
+
 
