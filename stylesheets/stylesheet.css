@@ -29,6 +29,13 @@ a{
   padding: 4px; 
 }
 
+.github{
+  color: #ffa500;
+  border: 1px solid #ffa500;
+  border-radius: 25px;
+  padding: 4px; 
+}
+
 
 .inner {
   position: relative;
