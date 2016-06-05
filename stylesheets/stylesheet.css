@@ -27,10 +27,13 @@ a{
 
 #top{
   background-color: orange;
-  padding: 5px;
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  padding-right: 10px;
   border-radius: 25px;
   width: 300px;
-  vertical-align:middle;
+
 }
 
 .back{
@@ -56,7 +59,7 @@ a{
 
 #content-wrapper {
   border-top: solid 1px #fff;
-  padding-top: 30px;
+  
   position: relative;
 }
 
