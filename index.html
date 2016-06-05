@@ -5,49 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 
-
+    <script src="jquery-1.12.4.min.js"></script>
+    <script> 
+    $(function(){
+      $("#header").load("header.html"); 
+      $("#footer").load("footer.html"); 
+    });
+    </script> 
     <title>Zhaeong</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Mister Squishy</h1>
-        <!--<h2>Personal webpage for Owen Zhang</h2>-->
-        <a href="https://github.com/Zhaeong" class="github">GitHub</a>
-      </div>
-    </header>
+    <div id="header"></div>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
-        <section id="main-content">
-            <h3>
-            <a href="./Resume.html">Resume</a>
-            </h3>
+            <div>
+              <a href="./Resume.html">    
+               <div style=" float: left; margin-right:3px">  <img src="images/PaperIcon.png" alt="Paper"> </div>
+               <div><h3>     Resume         </h3>      </div>
+              </a>
+            </div>
 
-            <h3>
-            <a href="./Games/gameIndex.html">Games</a>
-            </h3>
+            <div>
+              <a href="./Games/gameIndex.html">    
+               <div style=" float: left; margin-right:3px">  <img src="images/VideoGameController.png" alt="Paper"> </div>
+               <div><h3>     Games         </h3>      </div>
+              </a>
+            </div>
 
-            <h3>
-            <a href="./jrnl/jrnlindex.html">Movie Jrnl</a>
-            </h3>
+            <div>
+              <a href="https://github.com/Zhaeong">    
+               <div style=" float: left; margin-right:3px">  <img src="images/GithubIcon.png" alt="Paper"> </div>
+               <div><h3>     GitHub         </h3>      </div>
+              </a>
+            </div>
 
-            <h3>
-            <a href="./PoemMachine/PoemMachine.html">Poem Machine</a>
-            </h3>
+            <div>
+              <a href="./Misc/Miscindex.html">    
+               <div style=" float: left; margin-right:3px">  <img src="images/BookIcon.png" alt="Paper"> </div>
+               <div><h3>     Misc        </h3>      </div>
+              </a>
+            </div>
 
-            <h3>
-            <a href="./Songs.html">Songs</a>
-            </h3>
 
-        </section>
+
+       
       </div>
 
     
     </div>
 
-
+    <div id="footer"></div>
 
 
 

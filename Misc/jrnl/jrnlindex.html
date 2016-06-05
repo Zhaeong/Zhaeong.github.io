@@ -3,25 +3,27 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen" />
 
+    <script src="../../jquery-1.12.4.min.js"></script>
+    <script> 
+    $(function(){
+      $("#header").load("../../header.html"); 
+      $("#footer").load("footer.html"); 
+    });
+    </script> 
     <title>Zhaeong</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Good Old Neon</h1>
-        <h2>Personal Webpage for Owen Zhang</h2>
-      </div>
-    </header>
+    <div id="header"></div>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
 
           <h3>
-          <a class="back" href="../index.html">Back</a>
+          <a class="back" href="../Miscindex.html">Back</a>
           </h3>
 
           <h3>

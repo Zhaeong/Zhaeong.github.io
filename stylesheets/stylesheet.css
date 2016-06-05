@@ -1,7 +1,9 @@
+ @font-face { font-family: "Flipps"; src: url('Fipps-Regular.otf'); } 
+
 header {
   padding-top: 40px;
   padding-bottom: 40px;
-  font-family: 'Comic Sans MS', Helvetica, Arial, serif; 
+  font-family: Flipps, Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
   color: #ffa500;
@@ -13,7 +15,7 @@ body {
   font-size: 15px;
   line-height: 1.5; 
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
-  font-family: 'Comic Sans MS', Helvetica, Arial, serif;
+  font-family: "Flipps", Helvetica, Arial, serif;
   font-weight: 400;
   color: #000;
 
@@ -23,9 +25,16 @@ a{
   text-decoration:none;
 }
 
-.back{
-  border: 1px solid black;
+#top{
+  background-color: orange;
+  padding: 5px;
   border-radius: 25px;
+  width: 300px;
+  vertical-align:middle;
+}
+
+.back{
+
   padding: 4px; 
 }
 
@@ -33,7 +42,7 @@ a{
   color: #ffa500;
   border: 1px solid #ffa500;
   border-radius: 25px;
-  padding: 4px; 
+  padding: 1px; 
 }
 
 
@@ -41,6 +50,7 @@ a{
   position: relative;
   width: 940px;
   margin: 0 auto;
+
 }
 
 
