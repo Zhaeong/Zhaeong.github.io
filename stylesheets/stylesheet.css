@@ -1,9 +1,11 @@
- @font-face { font-family: helvetica, "Flipps"; src: url('Fipps-Regular.otf'); } 
+ @font-face { font-family: Dayrom; 
+              src: url('DAYROM__.ttf'); 
+            } 
 
 header {
   padding-top: 40px;
   padding-bottom: 40px;
-  font-family: Helvetica, Flipps, , Arial, serif; 
+  font-family: Dayrom, Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
   color: #ffa500;
@@ -15,7 +17,7 @@ body {
   font-size: 15px;
   line-height: 1.5; 
   background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
-  font-family: Helvetica, "Flipps", Arial, serif;
+  font-family: Dayrom, Helvetica, Arial, serif;
   font-weight: 400;
   color: #000;
   
